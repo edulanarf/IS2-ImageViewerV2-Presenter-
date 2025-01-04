@@ -1,7 +1,6 @@
 package org.example.imageviewer.swing;
 
 import org.example.imageviewer.ImageDisplay;
-import org.example.imageviewer.ImageDisplay.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +8,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class SwingImageDisplay extends JPanel implements ImageDisplay {
-    private Shift shitf = Shift.Null;
+    private Shift shift = Shift.Null;
     private Released released = Released.Null;
     private int initShift;
     private List<Paint> paints = new ArrayList<>();
@@ -26,7 +26,7 @@ public class SwingImageDisplay extends JPanel implements ImageDisplay {
         return new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                shitf.offset(e.getX()-initShift);
+                shift.offset(e.getX()-initShift);
             }
 
             @Override
@@ -86,6 +86,6 @@ public class SwingImageDisplay extends JPanel implements ImageDisplay {
     private static final Map<String, Color> colors=Map.of(
             "red", Color.RED,
             "green", Color.GREEN,
-            "blue", Color.BLUE;
-    )
+            "blue", Color.BLUE
+    );
 }
